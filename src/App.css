@@ -1,0 +1,30 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: #000;
+    font-size: 14px;
+    color: #FFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #FFF;
+    color: #000;
+}
+
+button:active {
+    position: relative;
+    top: -1px;
+}
