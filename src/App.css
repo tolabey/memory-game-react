@@ -6,13 +6,11 @@
 }
 
 button {
-    width: 100px;
     height: 30px;
     background-color: #000;
     font-size: 14px;
     color: #FFF;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     cursor: pointer;
     text-decoration: none;
     outline: none;
@@ -28,3 +26,9 @@ button:active {
     position: relative;
     top: -1px;
 }
+
+input {
+    height: 30px;
+    padding: 2px;
+}
+

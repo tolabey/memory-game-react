@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import {Provider} from "react-redux";
-import Test from "./Components/testComponent.js";
+import Picture from "./Components/Picture.js";
+import Level from "./Components/Level.js";
 import {createStore} from "redux";
 import {reducer} from "../src/reduxStore/reducer.js";
 import "./App.css";
@@ -14,7 +15,10 @@ class App extends Component{
   render(){
     return(
       <Provider store={this.store}>
-        <Test/>
+        <div className="app">
+          <Level/>
+          <Picture/>
+        </div>
       </Provider>
     );
   }

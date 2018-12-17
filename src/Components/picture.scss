@@ -1,0 +1,25 @@
+.picture-container {
+  width: 700px;
+
+
+  .image-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .one-image {
+      background-size: cover;
+      background-image: url("../testImages_abstract/background.jpeg");
+
+      margin: 15px;
+    }
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .turn-off {
+    opacity: 0;
+  }
+}
