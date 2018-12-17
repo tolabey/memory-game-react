@@ -25,8 +25,9 @@ export function reducer(store = I.Map(), action) {
     case "SET-SCORE":
       return store.set("score", store.get("score", 0) + action.payload);
     case "SUCCEESS-MAP":
-      console.log(action.payload)
       return store.setIn(["successMap", action.payload.get("key1")], true).setIn(["successMap", action.payload.get("key2")], true);
+    case "REMOVE-SUCCEESS-MAP":
+      return store.delete("successMap");
     default:
       return store;
   }

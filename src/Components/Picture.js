@@ -10,10 +10,11 @@ class Picture extends React.Component{
   }
 
   componentDidMount() {
-    let timer = setInterval(this.props.setTimer, 1000);
+    if(this.props.isStarted) {
+      let timer = setInterval(this.props.setTimer, 1000);
 
-    this.props.setTimeInterval(timer);
-
+      this.props.setTimeInterval(timer);
+    }
   }
 
   resetStatus() {
@@ -24,6 +25,7 @@ class Picture extends React.Component{
       this.props.finishGame();
       this.props.resetLevel();
       this.props.resetImageList();
+      this.props.resetSuccessImageMap();
     }
   }
 
@@ -63,7 +65,6 @@ class Picture extends React.Component{
   renderImages() {
     const imageList = this.props.imageList;
     return <div className="image-list" >{imageList.map(each => {
-      console.log("this.props.successMap.get(each.key)", this.props.successMap.get(each.get("key")))
       return <div
         className={`one-image ${this.props.successMap.get(each.get("key")) ? "turn-off" : ""}`}
         key={each.get("key")}
@@ -90,7 +91,6 @@ class Picture extends React.Component{
 }
 
 function mapStateToProps(store) {
-  console.log("score", store)
   return {
     level: store.get("level", 0),
     isStarted: store.get("start", false),
@@ -127,12 +127,13 @@ function mapDispatchToProps(dispatch) {
       return dispatch(action("REMOVE-CHOOSEN-IMAGES"))
     },
     setScore: function(value) {
-      console.log("55")
       return dispatch(action("SET-SCORE", value))
     },
     setSuccessMap: function(key1, key2) {
-      console.log(key1, key2)
       return dispatch(action("SUCCEESS-MAP", {key1, key2}))
+    },
+    resetSuccessImageMap: function() {
+      return dispatch(action("REMOVE-SUCCEESS-MAP"))
     }
   }
 }
